@@ -1,9 +1,22 @@
-
-    <div class="list-group">
-      <% @links.each do |link| %>
-      <div class="list-group-item">
-        <h4><%= link_to link.title, link %></h4>
-        <small class="text-muted">Submitted <%= time_ago_in_words(link.created_at) %> by <%= link.user.email %></small>
-      </div>
+<% @links.each do |link| %>
+<div class="thumbnail">
+  <div class="caption">
+    <h3><%= link_to link.title, link %></h3>
+    <small class="text-muted">Submitted <%= time_ago_in_words(link.created_at) %> by <%= link.user.email %></small>
+    <hr>
+    <p>
+      <%= link_to "View URL", link.url, class: "btn btn-default btn-sm" %>
+      <%= link_to like_link_path(link), method: :put, class: "btn btn-default btn-sm" do %>
+       <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
+       <!-- Upvote -->
+       <%= link.get_upvotes.size %>
       <% end %>
-    </div>
+      <%= link_to dislike_link_path(link), method: :put, class: "btn btn-default btn-sm" do %>
+       <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+       <!-- Downvote -->
+       <%= link.get_downvotes.size %>
+      <% end %>
+    </p>
+  </div>
+</div>
+<% end %>
