@@ -1,14 +1,11 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @link.title %>
-</p>
+<div class="page-header">
+  <h1><a href="<%= @link.url %>"><%= @link.title %></a></h1>
+  <small class="text-muted">Submitted <%= time_ago_in_words(@link.created_at) %> by <%= @link.user.email %></small>
+</div>
 
-<p>
-  <strong>Url:</strong>
-  <%= @link.url %>
-</p>
-
-<%= link_to 'Edit', edit_link_path(@link) %> |
-<%= link_to 'Back', links_path %>
+<div class="btn-group">
+  <a href="<%= @link.url %>" class="btn btn-primary">View URL</a>
+  <%= link_to 'Edit', edit_link_path(@link), class: "btn btn-default" %>
+  <%= link_to 'Destroy', @link, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
+</div>
