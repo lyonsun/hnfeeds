@@ -1,7 +1,7 @@
 
 <div class="page-header">
   <h1><%= @link.title %></h1>
-  <small class="text-muted">Submitted <%= time_ago_in_words(@link.created_at) %> by <%= @link.user.email %></small>
+  <small class="text-muted">Submitted <%= time_ago_in_words(@link.created_at) %> by <%= @link.user.name %></small>
 </div>
 
 <div class="btn-group">

@@ -2,7 +2,7 @@
 <div class="thumbnail">
   <div class="caption">
     <h3><%= link_to link.title, link %></h3>
-    <small class="text-muted">Submitted <%= time_ago_in_words(link.created_at) %> by <%= link.user.email %></small>
+    <small class="text-muted">Submitted <%= time_ago_in_words(link.created_at) %> by <%= link.user.name %></small>
     <hr>
     <p>
       <%= link_to "View URL", link.url, class: "btn btn-default btn-sm" %>
